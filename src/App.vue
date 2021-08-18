@@ -3,23 +3,30 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <h1>{{ activeChainId }}</h1>
+  <h2>{{ isSupportChainId }}</h2>
+  <button @click="connectWallet" v-if="!account">Connect Wallet</button>
+  <span v-else>{{ account }}</span>
+  <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 import { useStore } from "@/store";
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default defineComponent({
   setup: () => {
-    const { state, dispatch, getters } = useStore();
+    const { dispatch } = useStore();
     dispatch("init");
-
-    return {
-      account: computed(() => state.account),
-      activeChainId: computed(() => state.activeChainId),
-      isSupportChainId: computed(() => getters.isSupportChainId) ,
-    };
+    return {};
+  },
+  computed: {
+    ...mapState(["account", "activeChainId"]),
+    ...mapGetters(["isSupportChainId"]),
+  },
+  methods: {
+    ...mapActions(["connectWallet"]),
   },
 });
 </script>
