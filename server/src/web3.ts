@@ -1,9 +1,10 @@
 import Web3 from "web3"
 import HDWalletProvider from "@truffle/hdwallet-provider";
 
-const mnemonic = "embark gather game protect simple rescue job slight early enter dentist disease"
+// TODO 这里填钱包助记词
+const mnemonic = ""
 const web3 = new Web3()
-// BSC TESTNET https://data-seed-prebsc-1-s1.binance.org:8545/
+// BSC TESTNET https://data-seed-prebsc-1-s1.binance.org:8545
 // BSC MAIN https://bsc-dataseed.binance.org
 
 // TODO Switch from test network to main network
