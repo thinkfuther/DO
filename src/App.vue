@@ -1,17 +1,20 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="head">
+    <div class="logo">Logo</div>
+    <div class="actions">
+      <!-- <van-button type="default">当前网络: {{ activeChainId }}</van-button> -->
+        <van-button v-if="!isSupportChainId" type="danger">非BSC，请切换钱包网络</van-button>
+        <template v-else>
+          <van-button @click="connectWallet" v-if="!account" type="primary">连接钱包</van-button>
+          <van-button v-else type="primary">{{ account }}</van-button>
+        </template>
+    </div>
   </div>
-  <h1>{{ activeChainId }}</h1>
-  <h2>{{ isSupportChainId }}</h2>
-  <button @click="connectWallet" v-if="!account">Connect Wallet</button>
-  <span v-else>{{ account }}</span>
   <router-view />
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent } from "vue";
 import { useStore } from "@/store";
 import { mapActions, mapState, mapGetters } from "vuex";
 
@@ -32,24 +35,15 @@ export default defineComponent({
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html,body{
+  background-color: #f6f6f6;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.head {
+  height: 65px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
 }
 </style>

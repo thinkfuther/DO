@@ -24,7 +24,8 @@ export interface State {
 export const key: InjectionKey<Store<State>> = Symbol()
 export const store = createStore<State>({
   state: {
-    supportChainId: ChainId.BSC_MAINNET,
+    // TODO Switch from test network to main network
+    supportChainId: ChainId.BSC_TESTNET,
     activeChainId: 0,
     web3: new Web3(),
     account: null
