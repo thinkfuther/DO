@@ -1,5 +1,15 @@
 <template>
   <div class="home">
+    <div class="head">
+      <div class="actions">
+        <!-- <van-button type="default">当前网络: {{ activeChainId }}</van-button> -->
+          <van-button v-if="!isSupportChainId" type="danger">非BSC，请切换钱包网络</van-button>
+          <template v-else>
+            <van-button @click="connectWallet" v-if="!account" type="primary">连接钱包</van-button>
+            <van-button v-else type="primary">{{ account }}</van-button>
+          </template>
+      </div>
+  </div>
     <div class="button-tabs">
       <van-button
         v-for="(item, index) in supportTokens"
@@ -29,7 +39,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapGetters } from "vuex";
+import { useStore } from "@/store";
+import { mapState, mapGetters,mapActions } from "vuex";
 import { Notify } from "vant";
 import { TransferBNB, TransferToken } from "@/erc20";
 
@@ -54,6 +65,8 @@ export default defineComponent({
     };
   },
   setup: () => {
+    const { dispatch } = useStore();
+    dispatch("init");
     return {};
   },
   computed: {
@@ -61,6 +74,7 @@ export default defineComponent({
     ...mapGetters(["isSupportChainId"]),
   },
   methods: {
+    ...mapActions(["connectWallet"]),
     handleChangeToken(index: number) {
       this.currentTokenIndex = index;
     },
@@ -119,10 +133,9 @@ export default defineComponent({
 
 <style>
 .home {
-  max-width: 600px;
   background-color: #fff;
-  margin: 30px auto;
-  padding: 15px;
+  margin: .3rem;
+  padding: .2rem;
 }
 .value-input {
   margin: 15px 0;

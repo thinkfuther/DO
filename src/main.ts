@@ -6,4 +6,6 @@ import { store, key } from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
-createApp(App).use(store, key).use(router).use(Vant).mount('#app')
+const app = createApp(App).use(store, key).use(router).use(Vant).mount('#app');
+export default app;
+
