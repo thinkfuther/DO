@@ -18,7 +18,7 @@
             <span class="tree_award_template_tit "></span>
           </div>
           <div class="tree_award_template" pos="pos12">
-            <span class="tree_award_template_tit "></span>
+            <span class="tree_award_template_tit"></span>
           </div>
           <div class="tree_award_template " pos="pos13">
             <span class="tree_award_template_tit sp"></span>
@@ -35,24 +35,28 @@
         </div>
 
         <div @click="draw" class="spr_banner_tree_btn">
-          <b>6 LBD/每次</b>
-          <strong>充值6 LBD代币开启活动</strong>
+          <b>6 LBD/Per</b>
+          <strong>Recharge to start the activity</strong>
+        </div>
+        <div class="spr_banner_tree_hand">
+          <span class="spr_banner_tree_hand_tips">Click Me</span>
+          <i class="ic_hand"></i>
         </div>
       </div>
     </div>
 
     <div class="spr_banner_fl">
       <div @click="recharge" class="spr_banner_fl_template gold">
-        <span>充值</span>
+        <span>Recharge</span>
       </div>
       <div @click="withDrawal" class="spr_banner_fl_template gold">
-        <span>提现</span>
+        <span>WithDrawal</span>
       </div>
       <div @click="goPoint" class="spr_banner_fl_template balance">
-        <span class="alink_w">我的积分</span>
+        <span class="alink_w">My points</span>
       </div>
-      <div @click="goRecord" class="spr_banner_fl_template record">
-        <span class="alink_w">充值提现记录</span>
+      <div @click="goRecord" class="spr_banner_fl_template award">
+        <span class="alink_w">Record</span>
       </div>
     </div>
     <WinPrizeModel
@@ -114,7 +118,7 @@ export default defineComponent({
           this.active = false;
         }, 2000);
         axios
-          .post("/api/auth/lottery", {
+          .post("/auth/lottery", {
             wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
             point: WITH_POINT,
           })

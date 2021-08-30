@@ -1,5 +1,11 @@
 <template>
-  <div class="page_404">404</div>
+  <main class="walletbox">
+    <div class="banner_zt_dog_img">
+      <img src="./money_tree/img/flydoge.png" class="banner_zt_dog" />
+      <div class=""></div>
+    </div>
+    <div class="banner_zt_num">404</div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -21,11 +27,27 @@ export default defineComponent({
 </script>
 
 <style>
-.page_404 {
+.banner_zt_dog {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  display: inline-block;
+}
+.banner_zt_dog_img {
+  text-align: center;
+  margin: 35% auto 0.3rem;
+  animation: dog_ztAn 500ms alternate infinite;
+}
+.banner_zt_num {
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+@keyframes dog_ztAn {
+  from {
+    transform: translate(-0.06rem, 0.1rem);
+  }
+  to {
+    transform: translate(0, 0);
+  }
 }
 </style>

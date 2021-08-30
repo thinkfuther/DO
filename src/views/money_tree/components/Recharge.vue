@@ -1,43 +1,49 @@
 <template>
-  <div class="home">
-    <GoBack />
-    <div class="head">
-      <div class="actions">
-        <!-- <van-button type="default">当前网络: {{ activeChainId }}</van-button> -->
-        <van-button v-if="!isSupportChainId" type="danger"
-          >非BSC，请切换钱包网络</van-button
-        >
-        <template v-else>
-          <van-button @click="connectWallet" v-if="!account" type="primary"
-            >连接钱包</van-button
+  <div>
+    <go-back />
+    <div class="home fission_content">
+      <div class="head">
+        <div class="actions">
+          <!-- <van-button type="default">当前网络: {{ activeChainId }}</van-button> -->
+          <van-button v-if="!isSupportChainId" type="danger"
+            >Non BSC, please switch wallet network</van-button
           >
-          <van-button v-else type="primary">{{ account }}</van-button>
-        </template>
+          <template v-else>
+            <van-button @click="connectWallet" v-if="!account" type="primary"
+              >connect wallet</van-button
+            >
+            <van-button v-else type="primary">{{ account }}</van-button>
+          </template>
+        </div>
       </div>
-    </div>
-    <div class="button-tabs">
-      <van-button
-        v-for="(item, index) in supportTokens"
-        :key="index"
-        :type="currentTokenIndex === index ? 'primary' : 'default'"
-        @click="handleChangeToken(index)"
-        >{{ item.label }}</van-button
-      >
-    </div>
-    <div class="value-input">
-      <van-cell-group>
-        <van-field v-model="value" label="充值数量" placeholder="0.0" />
-      </van-cell-group>
-    </div>
-    <div class="submit-button">
-      <van-button
-        type="primary"
-        block
-        @click="handleSubmit"
-        :loading="loading"
-        loading-text="充值中..."
-        >立即充值</van-button
-      >
+      <div class="button-tabs">
+        <van-button
+          v-for="(item, index) in supportTokens"
+          :key="index"
+          :type="currentTokenIndex === index ? 'primary' : 'default'"
+          @click="handleChangeToken(index)"
+          >{{ item.label }}</van-button
+        >
+      </div>
+      <div class="value-input">
+        <van-cell-group>
+          <van-field
+            v-model="value"
+            label="Recharge quantity"
+            placeholder="0.0"
+          />
+        </van-cell-group>
+      </div>
+      <div class="submit-button">
+        <van-button
+          type="primary"
+          block
+          @click="handleSubmit"
+          :loading="loading"
+          loading-text="Recharging..."
+          >Recharge</van-button
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -55,7 +61,7 @@ import GoBack from "./GoBack.vue";
 const ReceivePaymentAddress = "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48";
 
 export default defineComponent({
-  ponents: { GoBack },
+  components: { GoBack },
   name: "Home",
   data() {
     return {
@@ -129,7 +135,7 @@ export default defineComponent({
         Notify({ type: "success", message: `${token.label}充值成功` });
         //充值成功，调用积分接口
         axios
-          .post("/api/auth/recharge", {
+          .post("/auth/recharge", {
             wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
             point: 20,
             inviteCode: "",

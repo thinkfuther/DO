@@ -38,16 +38,10 @@ const routes: Array<RouteRecordRaw> = [
     component: WithDrawal,
   },
   {
-    path: "/:pathMatch(.*)", // 页面不存在的情况下会跳到404页面
-    redirect: "/404",
+    path: "/:pathMatch(.*)*",
+    name: "404",
     component: page_404,
   },
-  //充值提现记录
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
 ];
 
 const router = createRouter({

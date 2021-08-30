@@ -2,7 +2,7 @@
   <!-- 我的邀请 -->
   <div class="fission_content">
     <nav class="fission_tab_nav">
-      <span class="fission_tab_nav_link">我的好友</span>
+      <span class="fission_tab_nav_link">My friends</span>
     </nav>
     <div class="fission_tab_content">
       <div v-if="friends.length > 0">
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <div v-else class="no_friend">暂无数据</div>
+      <div v-else class="no_friend">no-data</div>
     </div>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default defineComponent({
     //初始化
     init() {
       axios
-        .get("/api/auth/invite/list", {
+        .get("/auth/invite/list", {
           wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
         })
         .then((res) => {

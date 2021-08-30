@@ -1,44 +1,46 @@
 <template>
-  <!-- 我的邀请 -->
-  <div class="record">
+  <div>
+    <!-- 我的邀请 -->
     <GoBack />
-    <nav class="fission_tab_nav">
-      <span
-        @click="change(1)"
-        class="fission_tab_nav_link"
-        :class="{ active: tab == 1 }"
-        >充值记录</span
-      >
-      <span
-        @click="change(2)"
-        class="fission_tab_nav_link"
-        :class="{ active: tab == 2 }"
-        >提现记录</span
-      >
-    </nav>
-    <div v-if="isSucc" class="fission_tab_content">
-      <div v-if="!isLoading && listData.length == 0" class="tab_no">
-        暂无数据
-      </div>
-      <div v-else>
-        <div
-          class="fission_tab_row"
-          v-for="(item, index) in listData"
-          :key="index"
+    <div class="record fission_content">
+      <nav class="fission_tab_nav">
+        <span
+          @click="change(1)"
+          class="fission_tab_nav_link"
+          :class="{ active: tab == 1 }"
+          >Recharge record</span
         >
-          <div class="fission_tab_flex">
-            <b class="txt_del">{{ item.createTime }}</b>
-          </div>
-          <div class="fission_tab_flex">
-            <b class="txt_del"
-              >{{ tab == 1 ? "+" : "-" }}{{ item.pointAmount }}</b
-            >
+        <span
+          @click="change(2)"
+          class="fission_tab_nav_link"
+          :class="{ active: tab == 2 }"
+          >Withdrawal record</span
+        >
+      </nav>
+      <div v-if="isSucc" class="fission_tab_content">
+        <div v-if="!isLoading && listData.length == 0" class="tab_no">
+          no-data
+        </div>
+        <div v-else>
+          <div
+            class="fission_tab_row"
+            v-for="(item, index) in listData"
+            :key="index"
+          >
+            <div class="fission_tab_flex">
+              <b class="txt_del">{{ item.createTime }}</b>
+            </div>
+            <div class="fission_tab_flex">
+              <b class="txt_del"
+                >{{ tab == 1 ? "+" : "-" }}{{ item.pointAmount }}</b
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div v-if="isLoading">
-      <div class="loading">加载中<dot>...</dot></div>
+      <div v-if="isLoading">
+        <div class="loading">loading<dot>...</dot></div>
+      </div>
     </div>
   </div>
 </template>
@@ -89,7 +91,7 @@ export default defineComponent({
     getList(tab) {
       this.isLoading = true;
       axios
-        .get("/api/auth/point/log", {
+        .get("/auth/point/log", {
           wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
           operateType: tab,
           page: this.page,

@@ -1,42 +1,48 @@
 <template>
-  <div class="home">
-    <GoBack />
-    <div class="head">
-      <div class="actions">
-        <van-button v-if="!isSupportChainId" type="danger"
-          >非BSC，请切换钱包网络</van-button
-        >
-        <template v-else>
-          <van-button @click="connectWallet" v-if="!account" type="primary"
-            >连接钱包</van-button
+  <div>
+    <go-back />
+    <div class="home fission_content">
+      <div class="head">
+        <div class="actions">
+          <van-button v-if="!isSupportChainId" type="danger"
+            >Non BSC, please switch wallet network</van-button
           >
-          <van-button v-else type="primary">{{ account }}</van-button>
-        </template>
+          <template v-else>
+            <van-button @click="connectWallet" v-if="!account" type="primary"
+              >connect wallet</van-button
+            >
+            <van-button v-else type="primary">{{ account }}</van-button>
+          </template>
+        </div>
       </div>
-    </div>
-    <div class="button-tabs">
-      <van-button
-        v-for="(item, index) in supportType"
-        :key="index"
-        :type="currentIndex === item.value ? 'primary' : 'default'"
-        @click="handleChange(item.value)"
-        >{{ item.label }}</van-button
-      >
-    </div>
-    <div class="value-input">
-      <van-cell-group>
-        <van-field v-model="value" label="提现数量数量" placeholder="0.0" />
-      </van-cell-group>
-    </div>
-    <div class="submit-button">
-      <van-button
-        type="primary"
-        block
-        @click="handleSubmit"
-        :loading="loading"
-        loading-text="提现中..."
-        >提现</van-button
-      >
+      <div class="button-tabs">
+        <van-button
+          v-for="(item, index) in supportType"
+          :key="index"
+          :type="currentIndex === item.value ? 'primary' : 'default'"
+          @click="handleChange(item.value)"
+          >{{ item.label }}</van-button
+        >
+      </div>
+      <div class="value-input">
+        <van-cell-group>
+          <van-field
+            v-model="value"
+            label="Withdrawal quantity"
+            placeholder="0.0"
+          />
+        </van-cell-group>
+      </div>
+      <div class="submit-button">
+        <van-button
+          type="primary"
+          block
+          @click="handleSubmit"
+          :loading="loading"
+          loading-text="Withdrawaling..."
+          >Withdrawal</van-button
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -114,7 +120,7 @@ export default defineComponent({
 
         this.loading = true;
         axios
-          .post("/api/auth/withdraw", {
+          .post("/auth/withdraw", {
             wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
             point: this.value,
             type: this.currentIndex,

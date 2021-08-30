@@ -1,9 +1,9 @@
 import { InjectionKey } from "vue";
-import { useRoute } from "vue-router";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import Web3 from "web3";
 import axios from "@/axios";
 import { Notify } from "vant";
+// import { getAccount } from "../../server/src/web3";
 
 export enum ChainId {
   BSC_TESTNET = 97,
@@ -33,6 +33,7 @@ export interface State {
   token: string | "";
   user: User | null;
   isfailed: boolean | true;
+  walletHash: string | "";
 }
 export const key: InjectionKey<Store<State>> = Symbol();
 export const store = createStore<State>({
@@ -45,6 +46,7 @@ export const store = createStore<State>({
     token: "", //用户登陆凭证
     user: null, //用户信息
     isfailed: true, //是否请求失败
+    walletHash: "", //钱包hash
   },
   getters: {
     isSupportChainId: (state) => {
@@ -69,15 +71,22 @@ export const store = createStore<State>({
     setUser(state, user: User) {
       state.user = user;
     },
+    //存储钱包hash
+    setWalletHash(state, walletHash: string | "") {
+      state.walletHash = walletHash;
+    },
     //网络请求失败
     isfailed(state, isfailed: boolean) {
       state.isfailed = isfailed;
     },
   },
   actions: {
-    init({ commit, dispatch }) {
+    async init({ commit, dispatch }) {
+      // const walletHash =
+      //   (await getAccount()) || "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48";
+      // commit("setWalletHash", walletHash);
       axios
-        .get("/api/api/token", {
+        .get("/api/token", {
           wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
           inviteCode: "",
         })
@@ -87,7 +96,7 @@ export const store = createStore<State>({
             commit("setToken", data?.token);
             //获取用户信息
             axios
-              .get("/api/auth/user", {
+              .get("/auth/user", {
                 wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
               })
               .then((res1) => {

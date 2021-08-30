@@ -1,39 +1,16 @@
 <template>
-  <!-- 我的积分 -->
-  <div class="point">
+  <main class="walletbox">
     <go-back />
-    <div class="fission_content m_t">
+
+    <div class="fission_content">
       <div class="fission_gold">
-        <b class="fission_gold_tit">我的积分</b>
-        <span class="fission_gold_num">{{ user.userPointBalance }}</span>
+        <b class="fission_gold_tit">My points</b>
+        <span class="fission_gold_num"
+          >{{ user.userPointBalance }}<small>LBD</small></span
+        >
       </div>
     </div>
-
-    <!-- 我的积分明细 -->
-    <div class="fission_content">
-      <h2 class="fission_cm_tit">
-        积分记录
-      </h2>
-      <section class="fission_tab_content">
-        <div class="fission_tab_row">
-          <div class="fission_tab_flex">
-            <b class="txt_del">202108190600</b>
-          </div>
-          <div class="fission_tab_flex">
-            <b class="txt_del">+1000</b>
-          </div>
-        </div>
-        <div class="fission_tab_row">
-          <div class="fission_tab_flex">
-            <b class="txt_del">202108190630</b>
-          </div>
-          <div class="fission_tab_flex">
-            <b class="txt_del">+1000</b>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">

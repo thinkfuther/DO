@@ -1,3 +1,6 @@
+html body {
+  background: url(../../img/blindbox_v2/bg_repeat.png) 3.75rem;
+}
 button {
   outline: none;
   border: none;
@@ -166,7 +169,7 @@ button {
   background: #be613f;
   box-shadow: 0 2px 0 0 #8e2f11;
   border-radius: 0.5rem;
-  font-size: 0.24rem;
+  font-size: 0.2rem;
   color: #fff5d5;
   letter-spacing: 0;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -291,8 +294,8 @@ button {
 }
 .spr_banner_tree_hand {
   position: absolute;
-  right: 1.6rem;
-  bottom: 1.2rem;
+  right: 0rem;
+  bottom: -0.2rem;
   align-items: center;
   z-index: 2;
 }
@@ -304,8 +307,7 @@ button {
   border-radius: 0.06rem;
 }
 .spr_banner_tree_hand .ic_hand {
-  display: none;
-  width: 1.47rem;
+  width: 1.2rem;
   height: 1.35rem;
   background: url(../../img/blindbox_v2/ic_hand.png) center/contain no-repeat;
   animation: handAn 500ms alternate infinite;

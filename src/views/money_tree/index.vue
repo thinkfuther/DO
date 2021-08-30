@@ -16,9 +16,9 @@
       </div>
       <div class="fission_banner_info">
         <b class="fission_banner_info_num"
-          >我的邀请码：{{ user.userId || "" }}</b
+          >My invitation code: <br />{{ user.userId || "" }}</b
         >
-        <span @click="copy" class="fission_banner_info_btn">复制</span>
+        <span @click="copy" class="fission_banner_info_btn">Copy</span>
       </div>
       <div class="fission_content">
         <div class="fission_gold">

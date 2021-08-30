@@ -1,8 +1,9 @@
 import axios from "axios";
 import app from "../main.ts";
+import BASE_URL from "../utils/baseUrl";
 
-// axios.defaults.baseURL = ''  //正式
-axios.defaults.baseURL = "/"; //测试
+console.log("ip", BASE_URL);
+axios.defaults.baseURL = BASE_URL;
 
 axios.defaults.withCredentials = true;
 axios.defaults.crossDomain = true;

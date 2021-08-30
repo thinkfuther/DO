@@ -1,7 +1,13 @@
 <template>
-  <main class="go_back">
-    <div class="fixed" @click="back"></div>
-  </main>
+  <!--logo -->
+  <div class="spr_banner_tit">
+    <img
+      @click="back"
+      src="../img/blindbox_v2/logo_d.png"
+      class="spr_banner_tit_dog"
+    />
+    <div class="spr_banner_tit_img"></div>
+  </div>
 </template>
 
 <script lang="ts">
