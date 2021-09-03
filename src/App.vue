@@ -9,7 +9,7 @@ import { mapActions, mapState, mapGetters } from "vuex";
 
 export default defineComponent({
   setup: () => {
-    const { dispatch,commit } = useStore();
+    const { dispatch, commit } = useStore();
     dispatch("init");
     return {};
   },
@@ -24,19 +24,8 @@ export default defineComponent({
 </script>
 
 <style>
-html,body{
-  background-color: #f6f6f6;
-}
-#app{
+#app {
   width: 100%;
   min-height: 100vh;
-}
-.head {
-  height: 65px;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
 }
 </style>

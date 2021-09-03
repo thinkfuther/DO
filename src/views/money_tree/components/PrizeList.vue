@@ -1,18 +1,33 @@
 <template>
   <div class="spr_cm_box">
-    <h2 class="spr_cm_tit award"></h2>
+    <h2 class="spr_cm_tit">Super Jackpot</h2>
     <div class="spr_box_award">
       <div class="spr_box_award_flex">
         <img class="img_width" src="../img/blindbox_v2/LuckyBabyDoge.png" />
-        <span class="spr_box_award_txt"><b>66 LBD</b></span>
+        <span class="spr_box_award_txt"><b>100 Trillion</b></span>
       </div>
       <div class="spr_box_award_flex">
         <img class="img_width" src="../img/blindbox_v2/LuckyBabyDoge.png" />
-        <span class="spr_box_award_txt"><b>666 LBD</b></span>
+        <span class="spr_box_award_txt"><b>10 Trillion</b></span>
       </div>
       <div class="spr_box_award_flex">
         <img class="img_width" src="../img/blindbox_v2/LuckyBabyDoge.png" />
-        <span class="spr_box_award_txt"><b>6666 LBD</b></span>
+        <span class="spr_box_award_txt"><b>1 Trillion</b></span>
+      </div>
+    </div>
+
+    <div class="spr_box_award">
+      <div class="spr_box_award_flex">
+        <img class="img_width" src="../img/blindbox_v2/LuckyBabyDoge.png" />
+        <span class="spr_box_award_txt"><b>500 Billion</b></span>
+      </div>
+      <div class="spr_box_award_flex">
+        <img class="img_width" src="../img/blindbox_v2/LuckyBabyDoge.png" />
+        <span class="spr_box_award_txt"><b>200 Billion</b></span>
+      </div>
+      <div class="spr_box_award_flex">
+        <img class="img_width" src="../img/blindbox_v2/LuckyBabyDoge.png" />
+        <span class="spr_box_award_txt"><b>88.8 Billion</b></span>
       </div>
     </div>
   </div>

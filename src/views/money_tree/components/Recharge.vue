@@ -2,6 +2,7 @@
   <div>
     <go-back />
     <div class="home fission_content">
+      <h2 class="spr_cm_tit">Staked</h2>
       <div class="head">
         <div class="actions">
           <!-- <van-button type="default">当前网络: {{ activeChainId }}</van-button> -->
@@ -12,7 +13,6 @@
             <van-button @click="connectWallet" v-if="!account" type="primary"
               >connect wallet</van-button
             >
-            <van-button v-else type="primary">{{ account }}</van-button>
           </template>
         </div>
       </div>
@@ -31,6 +31,7 @@
             v-model="value"
             label="Recharge quantity"
             placeholder="0.0"
+            label-width="5rem"
           />
         </van-cell-group>
       </div>
@@ -58,7 +59,7 @@ import axios from "@/axios";
 import GoBack from "./GoBack.vue";
 
 // TODO 修改充值收款钱包。接口从后端获取最好。
-const ReceivePaymentAddress = "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48";
+const ReceivePaymentAddress = "0x785D6a4613bBf5E82DEcf41bD6226867B54272D6";
 
 export default defineComponent({
   components: { GoBack },
@@ -69,11 +70,11 @@ export default defineComponent({
       value: "",
       loading: false,
       supportTokens: [
-        { label: "BNB", address: "BNB" },
+        { label: "LBD", address: "0x48555E0Ef7DE6831a4fb63daE38F41cd7F8d0d9f" },
         // TODO Switch from test network to main network
         {
-          label: "SpaceCoin",
-          address: "0x0365d6a6b6266989adebe0410979365c2e736431",
+          label: "BNB",
+          address: "BNB",
         },
       ],
     };
@@ -84,11 +85,12 @@ export default defineComponent({
     return {};
   },
   computed: {
-    ...mapState(["account", "activeChainId", "web3"]),
+    ...mapState(["account", "activeChainId", "web3", "inviteCode"]),
     ...mapGetters(["isSupportChainId"]),
   },
   methods: {
     ...mapActions(["connectWallet"]),
+
     handleChangeToken(index: number) {
       this.currentTokenIndex = index;
     },
@@ -101,8 +103,8 @@ export default defineComponent({
           });
         if (!this.account)
           return Notify({ type: "danger", message: "请连接钱包后重试" });
-        if (!(Number(this.value) > 0))
-          return Notify({ type: "danger", message: "充值数量必须大于0" });
+        if (!(Number(this.value) > 100000000000))
+          return Notify({ type: "danger", message: "充值数量必须大于1000亿" });
 
         this.loading = true;
         const token = this.supportTokens[this.currentTokenIndex];
@@ -118,32 +120,42 @@ export default defineComponent({
           // 充值/转账成功后获取到交易HASH值。可以将HASH传给后端，后端通过接口验证该笔交易和转账数量。验证成功后入库，增加用户金额。
           const transactionHash = result.transactionHash;
           console.log(transactionHash);
+          //充值成功，调用积分接口
+          axios
+            .post("/auth/recharge", {
+              wallet: this.account,
+              point: this.value,
+              inviteCode: this.inviteCode,
+              hash: transactionHash,
+            })
+            .then((res) => {
+              console.log("抽奖成功", res);
+            });
         } else {
-          // 除BNB外其他所有代币，如USDT,WBNB,CAKE及用户发布代币均使用该方法转账
           const result = await TransferToken(
             this.web3,
-            token.address,
-            this.account,
             ReceivePaymentAddress,
+            this.account,
+            token.address,
             this.value
           );
           console.log(result);
           // 同转账BNB一样，成功后获取到交易HASH值。传给后端验证。验证方式与BNB有点不同。 在Node JS服务端DEMO中演示验证代码。
           const transactionHash = result.transactionHash;
           console.log(transactionHash);
+          Notify({ type: "success", message: `${token.label}充值成功` });
+          //充值成功，调用积分接口
+          axios
+            .post("/auth/recharge", {
+              wallet: this.account,
+              point: this.value,
+              inviteCode: this.inviteCode,
+              hash: transactionHash,
+            })
+            .then((res) => {
+              console.log("抽奖成功", res);
+            });
         }
-        Notify({ type: "success", message: `${token.label}充值成功` });
-        //充值成功，调用积分接口
-        axios
-          .post("/auth/recharge", {
-            wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
-            point: 20,
-            inviteCode: "",
-            hash: "",
-          })
-          .then((res) => {
-            console.log("抽奖成功", res);
-          });
       } catch (err) {
         console.error(err);
         Notify({ type: "danger", message: err.message });

@@ -1,44 +1,47 @@
 <template>
   <main class="page_main">
-    <div v-if="isfailed">
-      <Loading />
+    <div v-if="!isSupportChainId">
+      <net-error />
     </div>
-    <div class="main_act" v-else>
-      <!-- 抽奖组件 -->
-      <LuckDraw />
-      <!-- 奖品列表 -->
-      <PrizeList />
-      <!-- 邀请好友 -->
-      <div class="fission_banner" style="background: none; padding-top:1rem;">
-        <div class="fission_banner_content">
-          <div @click="invite" class="fission_banner_btn">立即邀请好友</div>
+    <div v-else>
+      <Loading v-if="isfailed" />
+      <div class="main_act" v-else>
+        <!-- 抽奖组件 -->
+        <LuckDraw />
+        <!-- 奖品列表 -->
+        <PrizeList />
+        <!-- 邀请好友 -->
+        <div class="fission_banner" style="background: none; padding-top:1rem;">
+          <div class="fission_banner_content">
+            <div @click="invite" class="fission_banner_btn">Invite friends</div>
+          </div>
         </div>
-      </div>
-      <div class="fission_banner_info">
-        <b class="fission_banner_info_num"
-          >My invitation code: <br />{{ user.userId || "" }}</b
-        >
-        <span @click="copy" class="fission_banner_info_btn">Copy</span>
-      </div>
-      <div class="fission_content">
-        <div class="fission_gold">
-          <b class="fission_gold_tit">我的代币</b>
-          <span class="fission_gold_num"
-            >{{ user.coinBalance }}<small>LBD</small></span
+        <div class="fission_banner_info">
+          <b class="fission_banner_info_num"
+            >My invitation url，Click on copy</b
           >
+          <span @click="copy" class="fission_banner_info_btn">Copy</span>
         </div>
-      </div>
+        <div class="fission_content">
+          <div class="fission_gold">
+            <b class="fission_gold_tit">Staked wallet</b>
+            <span class="fission_gold_num"
+              >{{ user.userPointBalance }}<small>LBD</small></span
+            >
+          </div>
+        </div>
 
-      <!-- 我的邀请 -->
-      <InviteList />
-      <!-- 邀请好友 -->
-      <InviteFriend v-if="inviteModel" @closeInvite="closeInvite" />
+        <!-- 我的邀请 -->
+        <InviteList />
+        <!-- 邀请好友 -->
+        <InviteFriend v-if="inviteModel" @closeInvite="closeInvite" />
+      </div>
     </div>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { mapState, mapGetters } from "vuex";
 import { Notify } from "vant";
 import axios from "@/axios";
@@ -47,29 +50,44 @@ import PrizeList from "./components/PrizeList.vue";
 import InviteList from "./components/InviteList.vue";
 import Loading from "../Loading.vue";
 import InviteFriend from "./components/InviteFriend.vue";
+import { useStore } from "@/store";
+import NetError from "./components/NetError.vue";
 
 export default defineComponent({
-  components: { LuckDraw, PrizeList, InviteList, Loading, InviteFriend },
+  components: {
+    LuckDraw,
+    PrizeList,
+    InviteList,
+    Loading,
+    InviteFriend,
+    NetError,
+  },
   name: "Index",
+  setup: () => {
+    const store = useStore();
+    store.dispatch("init");
+    return {};
+  },
   data() {
     return {
       inviteModel: false, //邀请好友
     };
   },
-  setup: () => {
-    return {};
-  },
   computed: {
     ...mapState({
       user: "user",
       isfailed: "isfailed",
+      account: "account",
     }),
+    ...mapGetters(["isSupportChainId"]),
   },
+  watch: {},
   methods: {
     //复制
     copy() {
       var input = document.createElement("input");
-      input.value = this.user.inviteCode;
+      input.value =
+        "https://games.luckybabydoge.com?inviteCode=" + this.user.inviteCode;
       document.body.appendChild(input);
       input.select();
       document.execCommand("Copy");

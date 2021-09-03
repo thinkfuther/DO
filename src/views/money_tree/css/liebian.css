@@ -70,7 +70,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.32rem;
+  margin-bottom: 0.52rem;
 }
 .fission_banner_info_num {
   font-size: 0.28rem;
@@ -89,7 +89,7 @@
 }
 
 .fission_content {
-  margin: 0 0.3rem 0.3rem;
+  margin: 0 0.3rem 0.6rem;
   background: #ffffff;
   box-shadow: 0 0 0.05rem 0 rgba(0, 0, 0, 0.1),
     inset 0 0 0.08rem 0 rgba(255, 0, 0, 0.6);
@@ -100,7 +100,7 @@
   background: #ffebd6;
   box-shadow: 0 2px 0.11rem 0 rgba(191, 111, 18, 0.56),
     inset 0 1px 0.1rem 0 rgba(255, 255, 255, 0.5);
-  min-height: 2.37rem;
+  /* min-height: 2.37rem; */
 }
 
 .processList {
@@ -622,7 +622,6 @@
 
 .f_codebox {
   clear: both;
-  margin: 0 0.3rem;
   text-align: center;
 }
 .f_codeimg {
@@ -643,6 +642,103 @@
   box-sizing: border-box;
   padding: 0.3rem 0;
   margin-bottom: 0.3rem;
+}
+.fl_bg {
+  background: rgba(0, 0, 0, 0.65) !important;
+}
+
+.f_codebox {
+  clear: both;
+  text-align: center;
+  position: relative;
+  background: #559234;
+  padding-bottom: 2rem;
+}
+.f_popup_f {
+  width: 6.54rem;
+  position: fixed;
+  z-index: 12;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.f_popup_f_code {
+  position: absolute;
+  color: #fff;
+  padding-bottom: 0.6rem;
+  display: block;
+  text-align: center;
+  bottom: 0;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+.f_popup_f_code img {
+  display: inline-block;
+  border: 6px solid #fff;
+}
+.f_popup_f_code span {
+  padding: 0.1rem;
+}
+
+.rule_content {
+  padding: 0.15rem;
+}
+.rule_content h3 {
+  font-size: 0.45rem;
+  text-align: center;
+}
+.rule_content h4 {
+  font-size: 0.4rem;
+}
+
+.rule_content p,
+.rule_content li,
+.rule_content h3,
+.rule_content h4 {
+  padding: 0.15rem;
+}
+.rule_content_pic {
+  padding: 0.15rem;
+  text-align: center;
+}
+.rule_content_pic img {
+  max-width: 100%;
+}
+.rule_content p a {
+  display: inline-block;
+  background: #ffbf79;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.22rem;
+  font-size: 0.3rem;
+  padding: 0.2rem 0.3rem;
+  justify-content: center;
+  text-align: center;
+}
+.ruleguide {
+  color: #fff;
+  margin-bottom: 0.3rem !important;
+}
+
+.rule_content .tablelist {
+  clear: both;
+  width: 100%;
+}
+.rule_content ul {
+  clear: both;
+  overflow: hidden;
+}
+.rule_content li {
+  float: left;
+  padding: 0.1rem 0.2rem;
+}
+.rule_content li:nth-child(odd) {
+  font-weight: bold;
+  background: rgba(255, 191, 121, 50%);
+}
+.rule_content li:nth-child(even) {
+  background-color: #fbf0e4;
 }
 
 .alink_w {

@@ -1,11 +1,13 @@
-html body {
-  background: url(../../img/blindbox_v2/bg_repeat.png) 3.75rem;
+html body{
+  background: #579534 url(../../img/blindbox_v2/bg_layer.png) center top/100%
+    auto no-repeat;
 }
 button {
   outline: none;
   border: none;
   background: none;
 }
+
 .spr_banner {
   background: url(../../img/blindbox_v2/top_bg_ipx.png) center bottom/100% auto
     no-repeat;
@@ -153,15 +155,24 @@ button {
   align-items: center;
   margin-top: 0.3rem;
 }
-.spr_banner_fl_template.balance {
+.spr_banner_fl_template.rule {
+  background-image: url(../../img/blindbox_v2/fl_btn_status_1.png);
+}
+.spr_banner_fl_template.recharge {
   background-image: url(../../img/blindbox_v2/fl_btn_status_2.png);
 }
-.spr_banner_fl_template.award {
+.spr_banner_fl_template.withdrawal {
   background-image: url(../../img/blindbox_v2/fl_btn_status_3.png);
 }
-.spr_banner_fl_template.record {
-  background-image: url(../../img/zd.png);
+.spr_banner_fl_template.points {
+  background-image: url(../../img/blindbox_v2/fl_btn_status_4.png);
 }
+.spr_banner_fl_template.recordcss {
+  background-image: url(../../img/blindbox_v2/fl_btn_status_5.png);
+}
+
+
+
 .spr_banner_fl_template span {
   min-width: 1.06rem;
   height: 0.34rem;
@@ -183,7 +194,7 @@ button {
 .tree_award_template {
   width: 1.4rem;
   height: 1.4rem;
-  background: url(../../img/blindbox_v2/tree_award.png) center/contain no-repeat;
+  background: url(../../img/blindbox_v2/tree_award_gold.png) center/contain no-repeat;
   align-items: center;
   justify-content: flex-end;
   position: absolute;
@@ -294,7 +305,7 @@ button {
 }
 .spr_banner_tree_hand {
   position: absolute;
-  right: 0rem;
+  right: 0.5rem;
   bottom: -0.2rem;
   align-items: center;
   z-index: 2;
@@ -320,15 +331,17 @@ button {
     transform: translate(0, 0);
   }
 }
-.spr_cm_tit {
+.spr_cm_tit { font-weight: bold;
   width: 3.87rem;
-  height: 0.84rem;
+  height: 0.84rem; line-height: .84rem;
   margin: -0.5rem auto 0;
   z-index: 2;
+  background: url(../../img/blindbox_v2/tit_tips.png) center/contain no-repeat;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 0.04rem #c56b00;
 }
-.spr_cm_tit.award {
-  background: url(../../img/blindbox_v2/tit_award.png) center/contain no-repeat;
-}
+
 .spr_cm_tit.hb {
   background: url(../../img/blindbox_v2/tit_hongbao.png) center/contain
     no-repeat;
@@ -352,8 +365,8 @@ button {
   margin: 0.3rem 0;
 }
 .spr_box_award_flex {
-  width: 1.33rem;
-  height: 1.41rem;
+  width: 1.5rem;
+  height: 1.56rem;
   background: #ffffff;
   border: 0.04rem solid #ffc382;
   border-radius: 0.2rem;
@@ -434,7 +447,7 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  padding: 2.4rem 1.1rem 0.6rem;
+  padding: 2.4rem 1rem 0.6rem .65rem;
 }
 .cm_popup_btn {
   min-width: 2.11rem;
@@ -572,18 +585,18 @@ button {
   background-image: url(../../img/blindbox_v2/popup_gold_bg.png);
   padding-bottom: 0.9rem;
 }
-.popup_gold_tit {
-  text-align: center;
-  font-size: 0.5rem;
-  color: #f02a07;
-  margin-bottom: 0.3rem;
+.popup_gold_tit{
+    text-align: center;
+    font-size:.5rem;
+    color: #fff;
+    margin:2rem 0 .3rem;
 }
 .popup_gold_flex {
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: #e82407;
+  color: #fff;
   margin: 0.3rem 0 auto;
 }
 .popup_gold_flex::before {
@@ -599,7 +612,7 @@ button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.6rem;
+  font-size: 0.5rem; color: #fff;
 }
 .cm_popup_btn_g {
   flex-direction: row;

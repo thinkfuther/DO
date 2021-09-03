@@ -1,9 +1,7 @@
 <template>
   <!-- 我的邀请 -->
   <div class="fission_content">
-    <nav class="fission_tab_nav">
-      <span class="fission_tab_nav_link">My friends</span>
-    </nav>
+    <h2 class="spr_cm_tit">My friends</h2>
     <div class="fission_tab_content">
       <div v-if="friends.length > 0">
         <div class="fission_tab_row" v-for="(item, idx) in friends" :key="idx">
@@ -15,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div v-else class="no_friend">no-data</div>
+      <div v-else class="no_friend">no friends yet, invite as soon as possible</div>
     </div>
   </div>
 </template>
@@ -39,6 +37,7 @@ export default defineComponent({
   computed: {
     ...mapState({
       user: "user",
+      account: "account",
     }),
   },
   mounted() {
@@ -49,7 +48,7 @@ export default defineComponent({
     init() {
       axios
         .get("/auth/invite/list", {
-          wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
+          wallet: this.account,
         })
         .then((res) => {
           console.log("邀请记录", res);
@@ -74,6 +73,6 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   font-size: 0.3rem;
-  color: #111111;
+  color: #111111; padding: 0 .3rem;
 }
 </style>

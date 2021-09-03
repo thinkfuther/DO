@@ -2,6 +2,7 @@
   <div>
     <go-back />
     <div class="home fission_content">
+      <h2 class="spr_cm_tit">Unstaked</h2>
       <div class="head">
         <div class="actions">
           <van-button v-if="!isSupportChainId" type="danger"
@@ -11,7 +12,7 @@
             <van-button @click="connectWallet" v-if="!account" type="primary"
               >connect wallet</van-button
             >
-            <van-button v-else type="primary">{{ account }}</van-button>
+            <!-- <van-button v-else type="primary">{{ account }}</van-button> -->
           </template>
         </div>
       </div>
@@ -30,6 +31,7 @@
             v-model="value"
             label="Withdrawal quantity"
             placeholder="0.0"
+            label-width="5rem"
           />
         </van-cell-group>
       </div>
@@ -66,24 +68,12 @@ export default defineComponent({
       currentIndex: "1", //提现类型
       supportType: [
         {
-          label: "积分",
+          label: "LBD",
           value: "1",
         },
         {
           label: "U",
           value: "2",
-        },
-        {
-          label: "代币",
-          value: "3",
-        },
-        {
-          label: "链币",
-          value: "4",
-        },
-        {
-          label: "全部",
-          value: "5",
         },
       ],
     };
@@ -115,19 +105,27 @@ export default defineComponent({
           });
         if (!this.account)
           return Notify({ type: "danger", message: "请连接钱包后重试" });
-        if (!(Number(this.value) > 0))
-          return Notify({ type: "danger", message: "提现数量必须大于0" });
+        if (!(Number(this.value) > 100000000000000))
+          return Notify({
+            type: "danger",
+            message: "提现数量必须大于100000000000000",
+          });
 
         this.loading = true;
         axios
           .post("/auth/withdraw", {
-            wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
+            wallet: this.account,
             point: this.value,
             type: this.currentIndex,
           })
           .then((res) => {
-            console.log("提现成功", res);
-            Notify({ type: "success", message: `提现成功` });
+            let { code, msg = "提现失败" } = res;
+            if (code == 0) {
+              console.log("提现成功", res);
+              Notify({ type: "success", message: `提现成功` });
+            } else {
+              Notify({ type: "danger", message: msg });
+            }
           });
         //充值成功，调用积分接口
       } catch (err) {

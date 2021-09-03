@@ -11,12 +11,12 @@ module.exports = {
     hot: true, //启动热更新 第一步webpack只用这一步
     https: false,
     proxy: {
-      "/api": {
+      "/": {
         //目标服务器,代理访问到http://localhost:8081
-        target: "https://api.luckybabydoge.com",
+        target: "https://games.luckybabydoge.com",
         changOrigin: true, //开启代理
         pathRewrite: {
-          "^/api": "",
+          "^/": "",
         },
       },
     },

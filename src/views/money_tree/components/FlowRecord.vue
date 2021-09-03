@@ -8,18 +8,18 @@
           @click="change(1)"
           class="fission_tab_nav_link"
           :class="{ active: tab == 1 }"
-          >Recharge record</span
+          >In</span
         >
         <span
           @click="change(2)"
           class="fission_tab_nav_link"
           :class="{ active: tab == 2 }"
-          >Withdrawal record</span
+          >Out</span
         >
       </nav>
       <div v-if="isSucc" class="fission_tab_content">
         <div v-if="!isLoading && listData.length == 0" class="tab_no">
-          no-data
+          No records
         </div>
         <div v-else>
           <div
@@ -70,10 +70,11 @@ export default defineComponent({
   computed: {
     ...mapState({
       user: "user",
+      account: "account",
     }),
   },
   created() {
-    this.bindScroll();
+    // this.bindScroll();
   },
   mounted() {
     //初始化
@@ -92,20 +93,22 @@ export default defineComponent({
       this.isLoading = true;
       axios
         .get("/auth/point/log", {
-          wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
+          wallet: this.account,
           operateType: tab,
           page: this.page,
-          size: 20,
+          size: 200,
         })
         .then((res) => {
-          console.log("充值提现记录", res);
           const { data, code } = res.data;
           if (code == 0) {
             this.isSucc = true;
             this.isLoading = false;
             this.listData = this.listData.concat(data);
+            if (!data || data == []) {
+              return Notify({ type: "danger", message: "No more" });
+            }
           } else {
-            return Notify({ type: "danger", message: "数据异常" });
+            return Notify({ type: "danger", message: "failed" });
           }
         })
         .catch((err) => {
@@ -125,7 +128,6 @@ export default defineComponent({
 
       if (B - H - S < 60) {
         // 快触底了 请求新数据
-        console.log("触底刷新～");
         this.page++;
         this.getList(this.tab);
       }

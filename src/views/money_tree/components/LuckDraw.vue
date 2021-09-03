@@ -17,26 +17,26 @@
           <div class="tree_award_template active" pos="pos11">
             <span class="tree_award_template_tit "></span>
           </div>
-          <div class="tree_award_template" pos="pos12">
+          <div class="tree_award_template wish" pos="pos12">
             <span class="tree_award_template_tit"></span>
           </div>
           <div class="tree_award_template " pos="pos13">
             <span class="tree_award_template_tit sp"></span>
           </div>
-          <div class="tree_award_template " pos="pos21">
+          <div class="tree_award_template wish" pos="pos21">
             <span class="tree_award_template_tit "></span>
           </div>
           <div class="tree_award_template" pos="pos22">
             <span class="tree_award_template_tit "></span>
           </div>
-          <div class="tree_award_template" pos="pos23">
+          <div class="tree_award_template wish" pos="pos23">
             <span class="tree_award_template_tit"></span>
           </div>
         </div>
 
         <div @click="draw" class="spr_banner_tree_btn">
-          <b>6 LBD/Per</b>
-          <strong>Recharge to start the activity</strong>
+          <b>100 Billion </b>
+          <strong>Lottery Draw Once</strong>
         </div>
         <div class="spr_banner_tree_hand">
           <span class="spr_banner_tree_hand_tips">Click Me</span>
@@ -46,16 +46,19 @@
     </div>
 
     <div class="spr_banner_fl">
-      <div @click="recharge" class="spr_banner_fl_template gold">
-        <span>Recharge</span>
+      <div @click="Rule" class="spr_banner_fl_template rule">
+        <span>Rule</span>
       </div>
-      <div @click="withDrawal" class="spr_banner_fl_template gold">
-        <span>WithDrawal</span>
+      <div @click="recharge" class="spr_banner_fl_template recharge">
+        <span>Staked</span>
       </div>
-      <div @click="goPoint" class="spr_banner_fl_template balance">
-        <span class="alink_w">My points</span>
+      <div @click="withDrawal" class="spr_banner_fl_template withdrawal">
+        <span>Unstaked</span>
       </div>
-      <div @click="goRecord" class="spr_banner_fl_template award">
+      <div @click="goPoint" class="spr_banner_fl_template points">
+        <span class="alink_w">Staked wallet</span>
+      </div>
+      <div @click="goRecord" class="spr_banner_fl_template recordcss">
         <span class="alink_w">Record</span>
       </div>
     </div>
@@ -92,9 +95,13 @@ export default defineComponent({
   computed: {
     ...mapState({
       user: "user",
+      account: "account",
     }),
   },
   methods: {
+    Rule() {
+      this.$router.push({ name: "rule" });
+    },
     withDrawal() {
       this.$router.push({ name: "withDrawal" });
     },
@@ -119,7 +126,7 @@ export default defineComponent({
         }, 2000);
         axios
           .post("/auth/lottery", {
-            wallet: "0xF7a26e486bD1422ad759055D00CfC83Ba4Dd2B48",
+            wallet: this.account,
             point: WITH_POINT,
           })
           .then((res) => {

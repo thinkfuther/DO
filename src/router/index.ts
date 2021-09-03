@@ -1,10 +1,16 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+  RouteRecordRaw,
+} from "vue-router";
 import Home from "../views/Home.vue";
 import MoneyTree from "@/views/money_tree/index.vue";
 import PointList from "@/views/money_tree/components/PointList.vue";
 import FlowRecord from "@/views/money_tree/components/FlowRecord.vue";
 import Recharge from "@/views/money_tree/components/Recharge.vue";
 import WithDrawal from "@/views/money_tree/components/Withdrawal.vue";
+import Rule from "@/views/money_tree/components/Rule.vue";
 import page_404 from "@/views/page_404.vue";
 const routes: Array<RouteRecordRaw> = [
   //摇钱树首页
@@ -37,6 +43,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "withDrawal",
     component: WithDrawal,
   },
+  //规则
+  {
+    path: "/rule",
+    name: "rule",
+    component: Rule,
+  },
   {
     path: "/:pathMatch(.*)*",
     name: "404",
@@ -45,7 +57,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(), //createWebHistory(process.env.BASE_URL),
   routes,
 });
 

@@ -3,10 +3,11 @@
     <!-- 弹层遮罩 -->
     <div class="fl_bg"></div>
     <!-- 中奖弹窗 -->
-    <div class="cm_popup popup_money ">
+    <div class="cm_popup popup_gold ">
+      <h3 class="popup_gold_tit">Congratulations</h3>
       <div class="popup_gold_flex">
         <b class="popup_gold_flex_txt"
-          >{{ bigNumberTransform(prizePoint) }} IBD</b
+          >{{ bigNumberTransform(prizePoint) }} LBD</b
         >
       </div>
       <button class="cm_popup_clo" @click="cancel"></button>
