@@ -2,7 +2,6 @@ import axios from "axios";
 import app from "../main.ts";
 import BASE_URL from "../utils/baseUrl";
 
-console.log("ip", BASE_URL);
 axios.defaults.baseURL = BASE_URL;
 
 axios.defaults.withCredentials = true;
@@ -10,12 +9,15 @@ axios.defaults.crossDomain = true;
 //post请求头
 axios.defaults.headers.post["Content-Type"] = "application/json";
 //设置超时
-axios.defaults.timeout = 10000;
+axios.defaults.timeout = 30000;
 
 axios.interceptors.request.use(
   (config) => {
     const { token = "" } = app.$store.state || "";
     config.headers["access-token"] = token;
+    config.headers["coin"] = "pinkswap";
+    config.headers["activityType"] = 3;
+    config.headers["chainType"] = 1;
     return config;
   },
   (error) => {

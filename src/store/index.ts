@@ -1,9 +1,6 @@
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import Web3 from "web3";
-import axios from "@/axios";
-import { Notify } from "vant";
-import { getQueryParam } from "../utils/index";
 
 export enum ChainId {
   BSC_TESTNET = 97,
@@ -30,6 +27,7 @@ export interface State {
   activeChainId: ChainId;
   web3: Web3;
   account: string | null;
+  aid: number | 0;
   token: string | "";
   user: User | null;
   isfailed: boolean | true;
@@ -43,6 +41,7 @@ export const store = createStore<State>({
     activeChainId: 0,
     web3: new Web3(),
     account: null,
+    aid: 0,
     token: "", //用户登陆凭证
     user: null, //用户信息
     isfailed: true, //是否请求失败
@@ -63,6 +62,10 @@ export const store = createStore<State>({
     updateAccount(state, account: null | string) {
       state.account = account;
     },
+    //存储活动ID
+    setAid(state, aid: number | 0) {
+      state.aid = aid;
+    },
     //存储token
     setToken(state, token: string | "") {
       state.token = token;
@@ -81,64 +84,6 @@ export const store = createStore<State>({
     },
   },
   actions: {
-    async init({ commit, dispatch }) {
-      //存储邀请码
-      const inviteCode = getQueryParam("inviteCode") || "";
-      console.log("inviteCode---", inviteCode);
-      commit("setCode", inviteCode);
-      if (!window.ethereum) {
-        return;
-      }
-      commit("updateWeb3", new Web3(window.ethereum));
-      window.ethereum.on("chainChanged", (chainId: any) =>
-        dispatch("handleChainChanged", chainId)
-      );
-      window.ethereum.on("accountsChanged", (accounts: string[]) => {
-        dispatch("handleAccountsChanged", accounts);
-      });
-
-      window.ethereum
-        .request({ method: "eth_chainId" })
-        .then((chainId: any) => dispatch("handleChainChanged", chainId));
-      window.ethereum
-        .request({ method: "eth_accounts" })
-        .then((accounts: string[]) => {
-          dispatch("handleAccountsChanged", accounts);
-          //获取钱包地址后
-          const account = accounts[0];
-          axios
-            .get("/api/token", {
-              wallet: account,
-              inviteCode: inviteCode,
-            })
-            .then((res) => {
-              const { code, data } = res.data;
-              if (code == 0) {
-                store.commit("setToken", data?.token);
-                //获取用户信息
-                axios
-                  .get("/auth/user", {
-                    wallet: account,
-                  })
-                  .then((res1) => {
-                    const { code, data } = res1.data;
-                    if (code == 0) {
-                      store.commit("setUser", data);
-                      store.commit("isfailed", false);
-                      // Notify({ type: "success", message: "Auto login success" });
-                    }
-                  });
-              } else {
-                // return Notify({ type: "danger", message: "自动登陆失败" });
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-              return Notify({ type: "danger", message: "failed" });
-            });
-          if (accounts.length === 0) dispatch("connectWallet");
-        });
-    },
     connectWallet() {
       if (!window.ethereum) {
         return;

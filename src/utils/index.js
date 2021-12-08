@@ -54,8 +54,49 @@ export function bigNumberTransform(value) {
 }
 //获取浏览器参数
 export function getQueryParam(name) {
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-  var r = window.location.search.substr(1).match(reg);
-  if (r != null) return unescape(r[2]);
-  return null;
+  var vars = {};
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(
+    m,
+    key,
+    value
+  ) {
+    vars[key] = value;
+  });
+  return vars[name];
+}
+
+//时间格式化
+export function formatTime(str, type = "") {
+  if (!str || str == "") return "Loading";
+  const Str = str.replace(/-/g, "/"); //兼容TP钱包
+  const date = new Date(Str);
+  let yy = date.getFullYear(),
+    MM = formatNum(date.getMonth() + 1),
+    dd = formatNum(date.getDate()),
+    hh = formatNum(date.getHours()),
+    mm = formatNum(date.getMinutes()),
+    ss = formatNum(date.getSeconds());
+  if (type == "HHMM") {
+    return hh + ":" + mm;
+  }
+  return { yy, MM, dd, hh, mm, ss };
+}
+
+//剩余时间转化
+export function formatRemainTime(str) {
+  if (str == "") return;
+  let temp_s = (str - new Date().getTime()) / 1000;
+  let dd = parseInt(temp_s / 60 / 60 / 24, 10); //计算剩余的天数
+  let hh = formatNum(parseInt((temp_s / 60 / 60) % 24, 10)); //计算剩余的小时数
+  let mm = formatNum(parseInt((temp_s / 60) % 60, 10)); //计算剩余的分钟数
+  let ss = formatNum(parseInt(temp_s % 60, 10)); //计算剩余的秒数
+  return dd + "days " + hh + ":" + mm + ":" + ss;
+}
+
+function formatNum(num) {
+  if (num < 0) return "00";
+  if (num >= 10) {
+    return num;
+  }
+  return "0" + num;
 }

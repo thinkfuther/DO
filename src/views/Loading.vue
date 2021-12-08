@@ -1,26 +1,17 @@
 <template>
-  <main class="walletbox">
-    <!--loading -->
-    <div class="loader">
-      <div class="loader-inner">
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
+  <div class="ant-spin-nested-loading">
+    <div>
+      <div class="ant-spin ant-spin-spinning">
+        <span class="ant-spin-dot ant-spin-dot-spin"
+          ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+          ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+        ></span>
       </div>
     </div>
-  </main>
+    <div class="ant-spin-container ant-spin-blur">
+      <div class="ChunkLoading_container__JJRDV"></div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -41,7 +32,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-.loading {
+.loading_m {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -49,7 +40,14 @@ export default defineComponent({
   align-items: center;
   flex-direction: row;
   font-size: 0.35rem;
-  background: #ff8630;
+  background: #2096f3;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 0.8rem;
   color: #fff;
 }
 dot {

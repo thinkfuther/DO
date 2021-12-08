@@ -6,7 +6,7 @@ switch (process.env.NODE_ENV) {
     BASE_URL = "/"; //开发环境url
     break;
   case "production":
-    BASE_URL = "https://games.luckybabydoge.com"; //生产环境url
+    BASE_URL = "https://plnksales.finance"; //正式环境
     break;
 }
 

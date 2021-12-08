@@ -4,50 +4,17 @@ import {
   createWebHistory,
   RouteRecordRaw,
 } from "vue-router";
-import Home from "../views/Home.vue";
-import MoneyTree from "@/views/money_tree/index.vue";
-import PointList from "@/views/money_tree/components/PointList.vue";
-import FlowRecord from "@/views/money_tree/components/FlowRecord.vue";
-import Recharge from "@/views/money_tree/components/Recharge.vue";
-import WithDrawal from "@/views/money_tree/components/Withdrawal.vue";
-import Rule from "@/views/money_tree/components/Rule.vue";
-import page_404 from "@/views/page_404.vue";
+
+import page_404 from "@/views/Page_404.vue";
+import Home from "@/views/Home.vue";
+
 const routes: Array<RouteRecordRaw> = [
-  //摇钱树首页
+  //首页
   {
-    path: "/",
-    name: "MoneyTree",
-    component: MoneyTree,
-  },
-  // 我的积分
-  {
-    path: "/point",
-    name: "point",
-    component: PointList,
-  },
-  // 充值提现记录
-  {
-    path: "/record",
-    name: "record",
-    component: FlowRecord,
-  },
-  //充值
-  {
-    path: "/recharge",
-    name: "recharge",
-    component: Recharge,
-  },
-  //提现
-  {
-    path: "/withDrawal",
-    name: "withDrawal",
-    component: WithDrawal,
-  },
-  //规则
-  {
-    path: "/rule",
-    name: "rule",
-    component: Rule,
+    path: "/launchpad/0x3b059F48CCB70172EA766650660652b599872028",
+    name: "home",
+    component: Home,
+    meta: { first_level: true, title: "一级页面" },
   },
   {
     path: "/:pathMatch(.*)*",

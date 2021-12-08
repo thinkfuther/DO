@@ -13,7 +13,7 @@ module.exports = {
     proxy: {
       "/": {
         //目标服务器,代理访问到http://localhost:8081
-        target: "https://games.luckybabydoge.com",
+        target: "http://plnksales.finance",
         changOrigin: true, //开启代理
         pathRewrite: {
           "^/": "",

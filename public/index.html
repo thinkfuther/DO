@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <title>Cash cow</title>
     <meta charset="utf-8" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -16,56 +15,18 @@
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="author" content="sina_mobile" />
-    <script type="text/javascript">
-      !(function(w, d, m) {
-        function r() {
-          var t = 100,
-            o = 750,
-            e = d.documentElement.clientWidth || w.innerWidth,
-            n = m.max(m.min(e, 480), 320),
-            h = 50;
-          320 >= n && (h = m.floor((n / o) * t * 0.99)),
-            n > 320 && 362 >= n && (h = m.floor((n / o) * t * 1)),
-            n > 362 && 375 >= n && (h = m.floor((n / o) * t * 1)),
-            n > 375 && (h = m.floor((n / o) * t * 0.97)),
-            (d.querySelector("html").style.fontSize = h + "px");
-        }
-        r();
-        w.onresize = function() {
-          r();
-        };
-      })(window, document, Math);
+
+    <link rel="apple-touch-icon" href="./logo192.png" />
+    <title>PinkSale - The Launchpad Protocol for Everyone!</title>
+    <script>
+      self == top
+        ? (document.documentElement.style.display = "block")
+        : (top.location = self.location);
     </script>
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="https://luckybabydoges.finance/favicon.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="114x114"
-      href="https://luckybabydoges.finance/favicon.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="57x57"
-      href="https://luckybabydoges.finance/favicon.png"
-    />
-    <style>
-      .bg {
-        background: #579534 url(./bg_layer.png) center/cover no-repeat;
-      }
-    </style>
+    <link href="css/main.css" rel="stylesheet" />
   </head>
-  <body class="bg">
-    <noscript>
-      <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
-      >
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
   </body>
 </html>

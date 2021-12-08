@@ -1,21 +1,17 @@
 <template>
-  <main class="walletbox">
-    <div class="banner_zt_dog_img">
-      <img src="./money_tree/img/flydoge.png" class="banner_zt_dog" />
-      <div class=""></div>
+  <main class="page_main">
+    <div class="page_errobox">
+      <p class="page_erro_tips">⚠️ 404</p>
     </div>
-    <div class="banner_zt_num">404</div>
   </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapGetters } from "vuex";
-import { Notify } from "vant";
 
 export default defineComponent({
   components: {},
-  name: "Loading",
+  name: "Page_404",
   data() {
     return {};
   },

@@ -1,31 +1,46 @@
 <template>
-  <router-view />
+  <main>
+    <div v-if="isfailed">
+      <Loading />
+    </div>
+    <div v-else>
+      <router-view />
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "@/store";
-import { mapActions, mapState, mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
+import Loading from "./views/Loading.vue";
 
 export default defineComponent({
   setup: () => {
-    const { dispatch, commit } = useStore();
-    dispatch("init");
     return {};
   },
+  components: { Loading },
+
   computed: {
-    ...mapState(["account", "activeChainId"]),
     ...mapGetters(["isSupportChainId"]),
+    ...mapState(["isfailed"]),
   },
-  methods: {
-    ...mapActions(["connectWallet"]),
-  },
+  methods: {},
 });
 </script>
 
 <style>
-#app {
-  width: 100%;
-  min-height: 100vh;
+.loading {
+  margin-top: 0.6rem;
+}
+.van-skeleton__row,
+.van-skeleton__title {
+  background: #046a38 !important;
+}
+.van-tabbar-item--active {
+  color: #046a38 !important;
+  background: #f5f7f9 !important;
+}
+.van-tabbar {
+  background: #f5f7f9 !important;
 }
 </style>
