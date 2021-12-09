@@ -17,7 +17,6 @@ export function getUserToken(account, inviteCode = "") {
 
           await getUser(account);
           await getPresale(account);
-          await commit("isfailed", false);
         } else {
           return Notify({ type: "danger", message: msg });
         }

@@ -35,10 +35,8 @@ function appInit() {
     const { dispatch, commit } = app.$store;
 
     //隐藏骨架屏
+    commit("isfailed", false);
     if (!window.ethereum) {
-      setTimeout(() => {
-        commit("isfailed", false);
-      }, 3000);
       return;
     }
 

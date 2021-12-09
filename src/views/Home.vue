@@ -1374,14 +1374,16 @@
                       <div class="is-flex is-align-items-center is-size-7">
                         <div class="is-flex-grow-1">
                           {{
-                            presale.bought >= presale.hardCap
-                              ? presale.hardCap
-                              : presale.bought
+                            presale
+                              ? presale.bought >= presale.hardCap
+                                ? presale.hardCap
+                                : presale.bought
+                              : "20"
                           }}
                           BNB
                         </div>
                         <div class="is-flex-grow-1 has-text-right">
-                          {{ presale.hardCap }} BNB
+                          {{ presale ? presale.hardCap : "600" }} BNB
                         </div>
                       </div>
                     </div>
@@ -1467,13 +1469,13 @@
                           <td>Maximum Buy</td>
                           <td class="has-text-right">10 BNB</td>
                         </tr>
-                        <tr>
+                        <tr v-if="user">
                           <td>Total Contributors</td>
                           <td class="has-text-right">
-                            {{ user.totalContributors || "Laoding" }}
+                            {{ user.totalContributors || "Loading" }}
                           </td>
                         </tr>
-                        <tr v-if="user.chainCoinBalance !== 0">
+                        <tr v-if="user && user.chainCoinBalance !== 0">
                           <td>Your Purchased</td>
                           <td class="has-text-right">
                             {{ user.chainCoinBalance }} BNB
@@ -1566,6 +1568,7 @@ export default defineComponent({
     },
     async buy() {
       try {
+        if (!this.account) return this.connectWallet();
         if (/^[0-9]+$/.test(this.value)) {
           const address = await TransferBNB(
             this.web3,
