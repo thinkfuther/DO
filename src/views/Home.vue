@@ -773,6 +773,509 @@
                         </tr>
                       </tbody>
                     </table>
+                    <div
+                      class="ant-collapse ant-collapse-icon-position-right ant-collapse-ghost"
+                    >
+                      <div class="ant-collapse-item ant-collapse-item-active">
+                        <div
+                          class="ant-collapse-header"
+                          role="button"
+                          tabindex="0"
+                          aria-expanded="true"
+                        >
+                          User whitelist
+                        </div>
+                        <div
+                          class="ant-collapse-content ant-collapse-content-active"
+                        >
+                          <div class="ant-collapse-content-box">
+                            <div class="ant-spin-nested-loading">
+                              <div class="ant-spin-container">
+                                <table class="has-text-centered">
+                                  <thead>
+                                    <tr>
+                                      <th>No.</th>
+                                      <th>Address (340)</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0xfAAC1f36198F11FB71BD98936E8Ec1a970FD4616
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy ant-tooltip-open"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0x2ca1D5d9699C4201FDaBc446FEbB1E54e8a9816f
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0x76AC2E59138D3cC9E232A318b18e9cf5A0e4A00A
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>4</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0x4E3dE8EaCD8fc74701A16F72D911762CDEd171B3
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>5</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0xa028C6A638815EA4B645A86EEf99057D80D8C43c
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>6</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0x656c529A9A7F7FCD3F1d8DC7B69C8B39c4204Be4
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>7</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0x62042Cdf190a25cA981bb6D6ED7E0e276FAB6586
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>8</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0x0E2C9B076728529cd0A8b53A81F260EDe2452054
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>9</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0xA0175929238fcaBD0781EB0B8aeabE5D834EECB9
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>10</td>
+                                      <td>
+                                        <div class="ant-typography">
+                                          0xD06998Fa211237B4315e29B0a43Bf16ff20264BA
+                                          <div
+                                            role="button"
+                                            tabindex="0"
+                                            class="ant-typography-copy"
+                                            aria-label="Copy"
+                                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                          >
+                                            <span
+                                              role="img"
+                                              aria-label="copy"
+                                              class="anticon anticon-copy"
+                                              ><svg
+                                                viewBox="64 64 896 896"
+                                                focusable="false"
+                                                data-icon="copy"
+                                                width="1em"
+                                                height="1em"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                ></path></svg
+                                            ></span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <!-- <div class="mt-4 has-text-centered">
+                              <ul
+                                class="ant-pagination"
+                                unselectable="unselectable"
+                              >
+                                <li
+                                  title="Previous Page"
+                                  class="ant-pagination-prev ant-pagination-disabled"
+                                  aria-disabled="true"
+                                >
+                                  <button
+                                    class="ant-pagination-item-link"
+                                    type="button"
+                                    tabindex="-1"
+                                    disabled=""
+                                  >
+                                    <span
+                                      role="img"
+                                      aria-label="left"
+                                      class="anticon anticon-left"
+                                      ><svg
+                                        viewBox="64 64 896 896"
+                                        focusable="false"
+                                        data-icon="left"
+                                        width="1em"
+                                        height="1em"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                      >
+                                        <path
+                                          d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                                        ></path></svg
+                                    ></span>
+                                  </button>
+                                </li>
+                                <li
+                                  title="1"
+                                  class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                                  tabindex="0"
+                                >
+                                  <a rel="nofollow">1</a>
+                                </li>
+                                <li
+                                  title="2"
+                                  class="ant-pagination-item ant-pagination-item-2"
+                                  tabindex="0"
+                                >
+                                  <a rel="nofollow">2</a>
+                                </li>
+                                <li
+                                  title="3"
+                                  class="ant-pagination-item ant-pagination-item-3"
+                                  tabindex="0"
+                                >
+                                  <a rel="nofollow">3</a>
+                                </li>
+                                <li
+                                  title="4"
+                                  class="ant-pagination-item ant-pagination-item-4"
+                                  tabindex="0"
+                                >
+                                  <a rel="nofollow">4</a>
+                                </li>
+                                <li
+                                  title="5"
+                                  class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+                                  tabindex="0"
+                                >
+                                  <a rel="nofollow">5</a>
+                                </li>
+                                <li
+                                  title="Next 5 Pages"
+                                  tabindex="0"
+                                  class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+                                >
+                                  <a class="ant-pagination-item-link">
+                                    <div class="ant-pagination-item-container">
+                                      <span
+                                        role="img"
+                                        aria-label="double-right"
+                                        class="anticon anticon-double-right ant-pagination-item-link-icon"
+                                        ><svg
+                                          viewBox="64 64 896 896"
+                                          focusable="false"
+                                          data-icon="double-right"
+                                          width="1em"
+                                          height="1em"
+                                          fill="currentColor"
+                                          aria-hidden="true"
+                                        >
+                                          <path
+                                            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                                          ></path></svg></span
+                                      ><span
+                                        class="ant-pagination-item-ellipsis"
+                                        >•••</span
+                                      >
+                                    </div>
+                                  </a>
+                                </li>
+                                <li
+                                  title="34"
+                                  class="ant-pagination-item ant-pagination-item-34"
+                                  tabindex="0"
+                                >
+                                  <a rel="nofollow">34</a>
+                                </li>
+                                <li
+                                  title="Next Page"
+                                  tabindex="0"
+                                  class="ant-pagination-next"
+                                  aria-disabled="false"
+                                >
+                                  <button
+                                    class="ant-pagination-item-link"
+                                    type="button"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      role="img"
+                                      aria-label="right"
+                                      class="anticon anticon-right"
+                                      ><svg
+                                        viewBox="64 64 896 896"
+                                        focusable="false"
+                                        data-icon="right"
+                                        width="1em"
+                                        height="1em"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        ></path></svg
+                                    ></span>
+                                  </button>
+                                </li>
+                              </ul>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -871,14 +1374,14 @@
                       <div class="is-flex is-align-items-center is-size-7">
                         <div class="is-flex-grow-1">
                           {{
-                            info.bought >= info.hardCap
-                              ? info.hardCap
-                              : info.bought
+                            presale.bought >= presale.hardCap
+                              ? presale.hardCap
+                              : presale.bought
                           }}
                           BNB
                         </div>
                         <div class="is-flex-grow-1 has-text-right">
-                          {{ info.hardCap }} BNB
+                          {{ presale.hardCap }} BNB
                         </div>
                       </div>
                     </div>
@@ -900,7 +1403,7 @@
                       </div>
                     </div>
                     <div class="field">
-                      <label class="label">Amount (max: 3 BNB)</label>
+                      <label class="label">Amount (max: {{ max }} BNB)</label>
                       <div class="control">
                         <div style="position: relative;">
                           <input
@@ -909,6 +1412,7 @@
                             placeholder="0.0"
                             v-model="value"
                           /><a
+                            @click="maxBtn"
                             class="mr-2"
                             target="_blank"
                             rel="noreferrer nofollow"
@@ -965,7 +1469,15 @@
                         </tr>
                         <tr>
                           <td>Total Contributors</td>
-                          <td class="has-text-right">128</td>
+                          <td class="has-text-right">
+                            {{ user.totalContributors || "Laoding" }}
+                          </td>
+                        </tr>
+                        <tr v-if="user.chainCoinBalance !== 0">
+                          <td>Your Purchased</td>
+                          <td class="has-text-right">
+                            {{ user.chainCoinBalance }} BNB
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -996,10 +1508,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState, mapGetters, mapActions } from "vuex";
-import { getUser } from "../api/index";
 import { formatTime } from "../utils/index";
 import axios from "@/axios";
-import { TransferBNB, payBNB } from "../utils/pay";
+import { TransferBNB } from "../utils/pay";
 
 //充值收款钱包
 const ReceivePaymentAddress = "0x2b2cb0fD50f734a054Ea282D9C7fA8533B28C521";
@@ -1010,12 +1521,11 @@ export default defineComponent({
   name: "Home",
   data() {
     return {
-      info: { bought: 20, hardCap: 600 }, //info
-      user: {}, //user
       formatTime,
-      format: "DD HH:mm:ss",
+      format: "DD days HH:mm:ss",
       value: "",
       times: 0,
+      max: "3", //最大金额
     };
   },
   setup: () => {
@@ -1023,7 +1533,7 @@ export default defineComponent({
   },
   components: {},
   computed: {
-    ...mapState(["account", "web3", "activeChainId"]),
+    ...mapState(["account", "presale", "user", "web3", "activeChainId"]),
 
     //end time
     endTime() {
@@ -1039,7 +1549,7 @@ export default defineComponent({
     },
     //progress
     progress() {
-      const { bought = 20, hardCap = 600 } = this.info as any;
+      const { bought = 20, hardCap = 600 } = (this.presale as any) || {};
       if (bought >= hardCap) {
         return "100%";
       } else {
@@ -1047,31 +1557,13 @@ export default defineComponent({
       }
     },
   },
-  watch: {
-    account(v) {
-      if (v) {
-        this.getPresale();
-      }
-    },
-  },
 
   methods: {
     ...mapActions(["connectWallet"]),
 
-    //presale
-    getPresale() {
-      try {
-        axios.post("/api/presale", { wallet: this.account }).then((res) => {
-          const { code, data } = res;
-          if (code == 0) {
-            this.info = data;
-          }
-        });
-      } catch (e) {
-        console.log(e);
-      }
+    maxBtn() {
+      this.value = this.max;
     },
-
     async buy() {
       try {
         if (/^[0-9]+$/.test(this.value)) {
@@ -1081,7 +1573,7 @@ export default defineComponent({
             ReceivePaymentAddress,
             this.value
           );
-          this.sendRecord(address, 3);
+          this.sendRecord();
         } else {
           return console.log("failed");
         }
@@ -1090,10 +1582,8 @@ export default defineComponent({
       }
     },
 
-    sendRecord(hash, times) {
+    sendRecord() {
       try {
-        if (this.times >= times) return;
-
         axios
           .post("/auth/recharge", {
             wallet: this.account,
@@ -1101,10 +1591,6 @@ export default defineComponent({
           })
           .then((res) => {
             const { code } = res;
-            if (code !== 0) {
-              this.times += 1;
-              this.sendRecord(hash, times);
-            }
           });
       } catch (e) {
         console.log(e);

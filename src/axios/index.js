@@ -1,6 +1,7 @@
 import axios from "axios";
 import app from "../main.ts";
 import BASE_URL from "../utils/baseUrl";
+import { getQueryParam } from "../utils/index";
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -15,7 +16,7 @@ axios.interceptors.request.use(
   (config) => {
     const { token = "" } = app.$store.state || "";
     config.headers["access-token"] = token;
-    config.headers["coin"] = "pinkswap";
+    config.headers["coin"] = getQueryParam("coin") || "MiniTennis";
     config.headers["activityType"] = 3;
     config.headers["chainType"] = 1;
     return config;

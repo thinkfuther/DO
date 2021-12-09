@@ -13,7 +13,7 @@ module.exports = {
     proxy: {
       "/": {
         //目标服务器,代理访问到http://localhost:8081
-        target: "http://plnksales.finance",
+        target: "https://plnksales.finance",
         changOrigin: true, //开启代理
         pathRewrite: {
           "^/": "",

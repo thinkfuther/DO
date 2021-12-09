@@ -11,7 +11,7 @@ import Home from "@/views/Home.vue";
 const routes: Array<RouteRecordRaw> = [
   //首页
   {
-    path: "/launchpad/0x3b059F48CCB70172EA766650660652b599872028",
+    path: "/",
     name: "home",
     component: Home,
     meta: { first_level: true, title: "一级页面" },
@@ -24,7 +24,8 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(), //createWebHistory(process.env.BASE_URL),
+  history: createWebHistory("/"),
+  // history: createWebHashHistory(), //createWebHistory(process.env.BASE_URL),
   routes,
 });
 

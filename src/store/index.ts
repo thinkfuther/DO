@@ -1,6 +1,7 @@
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import Web3 from "web3";
+import { getUserToken } from "../api/index";
 
 export enum ChainId {
   BSC_TESTNET = 97,
@@ -22,13 +23,18 @@ interface User {
   token: "";
 }
 
+interface Ip {
+  bought: 0;
+  hardCap: 0;
+}
+
 export interface State {
   supportChainId: ChainId;
   activeChainId: ChainId;
   web3: Web3;
   account: string | null;
-  aid: number | 0;
   token: string | "";
+  presale: Ip | null;
   user: User | null;
   isfailed: boolean | true;
   inviteCode: string | "";
@@ -41,8 +47,8 @@ export const store = createStore<State>({
     activeChainId: 0,
     web3: new Web3(),
     account: null,
-    aid: 0,
     token: "", //用户登陆凭证
+    presale: null,
     user: null, //用户信息
     isfailed: true, //是否请求失败
     inviteCode: "", //邀请码
@@ -62,10 +68,7 @@ export const store = createStore<State>({
     updateAccount(state, account: null | string) {
       state.account = account;
     },
-    //存储活动ID
-    setAid(state, aid: number | 0) {
-      state.aid = aid;
-    },
+
     //存储token
     setToken(state, token: string | "") {
       state.token = token;
@@ -74,11 +77,14 @@ export const store = createStore<State>({
     setUser(state, user: User) {
       state.user = user;
     },
-    //存储邀请码
+    setPresale(state, presale: Ip) {
+      state.presale = presale;
+    },
+
     setCode(state, inviteCode: string | "") {
       state.inviteCode = inviteCode;
     },
-    //网络请求失败
+
     isfailed(state, isfailed: boolean) {
       state.isfailed = isfailed;
     },
@@ -90,6 +96,9 @@ export const store = createStore<State>({
       }
       window.ethereum
         .request({ method: "eth_requestAccounts" })
+        .then((res) => {
+          getUserToken(res[0]);
+        })
         .catch((err: any) => console.error(err));
     },
     handleChainChanged({ commit }, _chainId: any) {

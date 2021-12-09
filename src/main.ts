@@ -35,8 +35,10 @@ function appInit() {
     const { dispatch, commit } = app.$store;
 
     //隐藏骨架屏
-    commit("isfailed", false);
     if (!window.ethereum) {
+      setTimeout(() => {
+        commit("isfailed", false);
+      }, 3000);
       return;
     }
 
@@ -55,6 +57,9 @@ function appInit() {
 
         commit("updateAccount", accounts[0]);
 
+        if (accounts.length > 0) {
+          getUserToken(accounts[0]);
+        }
         if (accounts.length === 0) dispatch("connectWallet");
       });
   }
